@@ -1,6 +1,12 @@
-# infant-recon-all
+# WMH-synthseg
 
-This gear runs infant-freesurfer available in Freesurfer version 8.1.0 (Ubuntu22). This is the out-of-the-box version that runs convolutiona neural networks for segmentation.
+This gear runs WMH-synthseg available in Freesurfer version 8.1.0 (Ubuntu22). This is the out-of-the-box version that runs convolutiona neural networks for segmentation.
+
+## To do:
+- amend the manifest.json to include the options for wmh-synthseg
+- update the app/main.sh to include the wmh-synthseg command instead of infant-freesurfer command
+- update the README.md to reflect the changes
+
 
 ## Overview
 
