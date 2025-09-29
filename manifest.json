@@ -2,13 +2,7 @@
   "author": "Niall Bourke",
   "cite": "Z\u00f6llei, L, Iglesias, JE, Ou, Y, Grant, PR, Fischl,B. Infant FreeSurfer: An automated segmentation and surface extraction pipeline for T1-weighted neuroimaging data of infants 0-2 years, NeuroImage, 2020, 116946, https://doi.org/10.1016/j.neuroimage.2020.116946.",
   "command": "python3 /flywheel/v0/run.py",
-  "config": {
-    "age": {
-      "default": null,
-      "description": "Age of the infant at the time of scan (in months). If set to 0, the age will be taken from the subject metadata.",
-      "maximum": 12,
-      "minimum": 1
-    }
+  
   },
   "custom": {
     "analysis-level": "participant",
