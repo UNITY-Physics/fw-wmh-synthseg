@@ -3,7 +3,6 @@
   "cite": "Z\u00f6llei, L, Iglesias, JE, Ou, Y, Grant, PR, Fischl,B. Infant FreeSurfer: An automated segmentation and surface extraction pipeline for T1-weighted neuroimaging data of infants 0-2 years, NeuroImage, 2020, 116946, https://doi.org/10.1016/j.neuroimage.2020.116946.",
   "command": "python3 /flywheel/v0/run.py",
   
-  },
   "custom": {
     "analysis-level": "participant",
     "flywheel": {
@@ -98,5 +97,5 @@
   "name": "infant-freesurfer",
   "source": "https://surfer.nmr.mgh.harvard.edu/fswiki/infantFS",
   "url": "https://github.com/UNITY-Physics/fw-infant-freesurfer",
-  "version": "1.0.1"
+  "version": "0.0.1"
 }
