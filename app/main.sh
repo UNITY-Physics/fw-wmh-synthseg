@@ -96,7 +96,7 @@ exit_status=0
 # Run infant_recon_all with options
 if [[ -e $input_file ]]; then
   echo "Running infant_recon_all..."
-  /usr/local/freesurfer/8.1.0/bin/infant_recon_all -s $base_filename -i $input_file --age $age
+  /usr/local/freesurfer/8.1.0/bin/mri_WMHsynthseg --i $base_filename --o /flywheel/v0/output
   exit_status=$?
 fi
 
