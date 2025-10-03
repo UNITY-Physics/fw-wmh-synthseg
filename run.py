@@ -33,24 +33,24 @@ def main(context: GearToolkitContext) -> None:
     demographics = demo(context)
 
     # To get only the value and remove the index, you can access the specific value within the Series. The easiest way is to use the .iloc[0] or .item() method
-    age = int(demographics['age'].iloc[0])
+    # age = int(demographics['age'].iloc[0])
     subject_label = demographics['subject'].iloc[0]
     session_label = demographics['session'].iloc[0]
 
     # Print parsed values for debugging
     print(f"Subject Label: {subject_label}")
     print(f"Session Label: {session_label}")
-    print(f"Age: {age} months")
+    # print(f"Age: {age} months")
 
-    if context.config.get("age") is not None:
-        demographics['age'] = context.config.get("age")
-        demographics['age_source'] = 'user_input'
-        print(f"Using user input age from config: {age} months")
+    # if context.config.get("age") is not None:
+    #     demographics['age'] = context.config.get("age")
+    #     demographics['age_source'] = 'user_input'
+    #     print(f"Using user input age from config: {age} months")
 
     print("running main.sh...")
     command = "/flywheel/v0/app/main.sh"
     # Add the input path and age to the command
-    command = f"{command} {subject_label} \"{session_label}\" {age} {num_threads}"
+    command = f"{command} {subject_label} \"{session_label}\"" #{age} {num_threads}"
     exec_command(command,shell=True,cont_output=True)
 
     # housekeeping(demographics)

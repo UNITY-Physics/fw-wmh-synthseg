@@ -12,5 +12,5 @@ __pycache__
 config.json
 license.txt
 
-
 # large project files
+WMH-SynthSeg_v10_231110.pth

@@ -9,10 +9,16 @@ RUN mkdir -p $FLYWHEEL/input
 
 # Copy the contents of the directory the Dockerfile is into the working directory of the to be container
 COPY ./ $FLYWHEEL/
+COPY ./WMH-SynthSeg_v10_231110.pth /usr/local/freesurfer/8.1.0/models/
 
+# Clean first
 # Install Dev dependencies
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+RUN apt-get clean && \
+    rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* && \
+    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid && \
+    echo 'APT::Get::AllowUnauthenticated "true";' >> /etc/apt/apt.conf.d/99no-check-valid && \
+    apt-get update --allow-insecure-repositories && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --allow-unauthenticated --no-install-recommends \
         unzip \
         gzip \
         wget \

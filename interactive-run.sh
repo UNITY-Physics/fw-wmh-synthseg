@@ -1,8 +1,8 @@
 #!/usr/bin/env bash 
 
-GEAR=fw-infant-freesurfer
-IMAGE=flywheel/infant-freesurfer:1.0.1
-LOG=infant-freesurfer-1.0.1-68d6808c78a189d24aca0c8a
+GEAR=fw-wmh-synthseg
+IMAGE=flywheel/wmh-synthseg:0.0.2
+LOG=wmh-synthseg-0.0.2-68de9a3725cbee1d3998483f
 user=/Users/nbourke/GD/atom/
 
 # Command:

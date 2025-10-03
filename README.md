@@ -2,11 +2,6 @@
 
 This gear runs WMH-synthseg available in Freesurfer version 8.1.0 (Ubuntu22). This is the out-of-the-box version that runs convolutiona neural networks for segmentation.
 
-## To do:
-- amend the manifest.json to include the options for wmh-synthseg
-- update the app/main.sh to include the wmh-synthseg command instead of infant-freesurfer command
-- update the README.md to reflect the changes
-
 
 ## Overview
 
@@ -15,24 +10,20 @@ This gear runs WMH-synthseg available in Freesurfer version 8.1.0 (Ubuntu22). Th
 [FAQ](#faq)
 
 ### Summary
-Takes an isotropic image and runs recon-all-clinical on it. The output includes a volume estimation, a QC file, a cortical thickness estimation, a parcelation file, and a Freesurfer archive zip.
+Takes an isotropic image and runs WMH-synthseg on it. The output includes a volume estimation file (csv), a probability map of lesions (nii.gz), and a segmentation file (nii.gz).
 
-The output file labels are based on the BIDS standard, taking the input file name and appending the appropriate suffixes. For example if the input file is `sub-01_ses-01_T1w.nii.gz`, the output files will be named `sub-01_ses-01_T1w_seg.nii.gz`, `sub-01_ses-01_T1w_vol.csv`, `sub-01_ses-01_T1w_qc.csv`, `sub-01_ses-01_T1w_thickness.csv`, `sub-01_ses-01_T1w_parcelation.nii.gz`, and `sub-01_ses-01_T1w_freesurfer.zip`.
-
+The output file labels are based on the BIDS standard, taking the input file name and appending the appropriate suffixes. For example if the input file is `sub-01_ses-01_T1w.nii.gz`, the output files will be named `sub-01_ses-01_desc-wmhsynthseg.nii.gz`, `sub-01_ses-01_desc-wmhsynthseg_probabilities.nii.gz`, and `sub-01_ses-01_desc-wmhsynthseg_volumes.csv`.
 ### Cite
 
 **license:**
 
 
-**url:** <https://github.com/Nialljb/fw-freeSurfer-clinical-gear>
+**url:** <https://github.com/UNITY-Physics/fw-wmh-synthseg>
 
 **cite:**  
-SynthSeg: Domain Randomisation for Segmentation of Brain MRI Scans of any Contrast and Resolution
-B. Billot, D.N. Greve, O. Puonti, A. Thielscher, K. Van Leemput, B. Fischl, A.V. Dalca, J.E. Iglesias
+Quantifying white matter hyperintensity and brain volumes in heterogeneous clinical and low-field portable MRI. Laso P, Cerri S, Sorby-Adams A, Guo J, Matteen F, Goebl P, Wu J, Liu P, Li H, Young SI, Billot B, Puonti O, Sze G, Payabavash S, DeHavenon A, Sheth KN, Rosen MS, Kirsch J, Strisciuglio N, Wolterink JM, Eshaghi A, Barkhof F, Kimberly WT, and Iglesias JE. Proceedings of ISBI 2024 (in press).
 
-Robust Segmentation of Brain MRI in the Wild with Hierarchical CNNs and no Retraining
-B. Billot, M. Colin, S.E. Arnold, S. Das, J.E. Iglesias
-MICCAI 2022  
+
 
 ### Classification
 
@@ -70,29 +61,14 @@ MICCAI 2022
   * **Description**: segmentated file 
   * **Optional**: false
 
-* parcelation
+* probability
   * **Base**: file
-  * **Description**: parcelation file 
+  * **Description**: probability file (nii.gz)
   * **Optional**: true
 
 * vol
   * **Base**: file
   * **Description**: volume estimation file (csv)
-  * **Optional**: true
-
-* QC
-  * **Base**: file
-  * **Description**: QC file (csv)
-  * **Optional**: true
-  
-* Cortical Thickness
-  * **Base**: file
-  * **Description**: Thickness estimation file (csv)
-  * **Optional**: true
-
-* Freesurfer archive zip
-  * **Base**: file
-  * **Description**: archive of Freesurfer intermediary output (zip)
   * **Optional**: true
 
 
@@ -126,7 +102,7 @@ it does, but HOW it works in flywheel
 ### Description
 
 This gear is run at either the `Subject` or the `Session` level. It downloads the data for that subject/session and then runs the
-`recon-all-clinical` pipeline on it.
+`WMH-SynthSeg` pipeline on it.
 
 After the pipeline is run, the output folder is zipped and saved into the analysis
 container.
@@ -174,5 +150,7 @@ Description of workflow
 
 [For more information about how to get started contributing to that gear,
 checkout [CONTRIBUTING.md](CONTRIBUTING.md).]
-# fw-infant-freesurfer
-# fw-wmh-synthseg
+
+## Changelog
+[For more information about the changes to this gear over time,
+checkout [CHANGELOG.md](changelog.md).]
